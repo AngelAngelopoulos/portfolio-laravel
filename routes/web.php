@@ -1,5 +1,9 @@
 <?php
 
+
+use GuzzleHttp\Psr7\Uri;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +44,7 @@ Route::view('/contact','contact')->name('contact');
 
 Route::post('/contact', 'MessageController@storage')->name('contact.storage');
 
+Route::get('/css/app.css', 'MessageController@style')->name('html.style');
 
 Auth::routes(['register' => false]);
 

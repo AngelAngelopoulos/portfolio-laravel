@@ -3,21 +3,76 @@
 @section('title', 'Contact')
 
 @section('content')
-    <h1>Contact</h1>
+    <div class="container">
+        <div class="col-12 col-sm-10 col-lg-8 mx-auto">
+            <h1 class="title">Contact me</h1>
 
-    <form method="post" action="{{ route('contact')  }}">
-        @csrf
-        <input name="name" type="text" value="{{ old('name') }}" placeholder="Name..."><br>
-        {!! $errors->first('name', '<small>:message</small><br>') !!}
+            <form method="post" action="{{ route('contact') }}"
+                  class="bg-dark text-white shadow rounded py-3 px-4">
+                @csrf
 
-        <input name="email" type="email" value="{{ old('email') }}" placeholder="Email..."><br>
-        {!! $errors->first('email', '<small>:message</small><br>') !!}
+                @include('partials.input', [
+                    'inputName' => 'name',
+                    'labelText' => 'Name',
+                    'inputPlaceholder' => 'Your full name here...',
+                    'typeInput' => 'text'
+                ])
 
-        <input name="subject" type="text" value="{{ old('subject') }}" placeholder="Subject..."><br>
-        {!! $errors->first('subject', '<small>:message</small><br>') !!}
+                @include('partials.input', [
+                    'inputName' => 'email',
+                    'labelText' => 'Email',
+                    'inputPlaceholder' => 'Your email as mail@example.com',
+                    'typeInput' => 'email'
+                ])
 
-        <input name="message" type="text" value="{{ old('message') }}" placeholder="Message..."><br>
-        {!! $errors->first('message', '<small>:message</small><br>') !!}
-        <button type="submit">Send</button>
-    </form>
+                @include('partials.input', [
+                    'inputName' => 'subject',
+                    'labelText' => 'Subject',
+                    'inputPlaceholder' => 'Subject of the message...',
+                    'typeInput' => 'text'
+                ])
+
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea
+                        rows="5"
+                        aria-multiline="true"
+                        name="message"
+                        class="textBox form-control bg-light shadow rounded
+                    @error('message') is-invalid @else border-0 @enderror"
+                        onfocusout="textReplace()"
+                        onfocusin="textRepWithDef()"
+                    >{{ old('message', 'Body message here...') }}
+                </textarea>
+                    @error('message')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>
+                            {{ $message }}
+                        </strong>
+                    </span>
+                    @enderror
+                </div>
+
+                <script>
+                    function textRepWithDef() {
+                        let text = document.getElementsByClassName('textBox');
+                        //console.log('llego');
+                        text[0].childNodes[0].nodeValue = '';
+                    }
+
+                    function textReplace() {
+                        let text = document.getElementsByClassName('textBox');
+                        text[0].childNodes[0].nodeValue = "{{ old('message', 'Body message here...') }}";
+                    }
+                </script>
+
+                <div class="form-group">
+                    <button type="submit" class="form-control btn btn-primary rounded-pill shadow-sm">
+                        Send
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

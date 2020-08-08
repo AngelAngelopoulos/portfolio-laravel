@@ -1,0 +1,22 @@
+# Using this header, any browser that accesses the site over HTTPS will not
+# be able to access the plain HTTP site for one year (31536000 seconds).
+# One you begin using this, you should not stop using SSL on your site or
+# else your returning visitors will not be able to access your site at all.
+Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+Header add Content-Security-Policy "default-src 'self';"
+
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/public/
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+
+RewriteRule ^(.*)$ /public/$1
+#RewriteRule ^ index.php [L]
+RewriteRule ^(/)?$ public/index.php [L]
+</IfModule>

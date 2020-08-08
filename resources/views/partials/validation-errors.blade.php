@@ -1,6 +1,6 @@
 
 @if($errors->any())
-    <ul>
+    <ul class="text-danger">
         @foreach($errors->all() as $error)
             <li>
                 {{ $error }}

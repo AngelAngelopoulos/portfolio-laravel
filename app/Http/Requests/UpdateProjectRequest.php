@@ -3,9 +3,12 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class SaveProjectRequest extends FormRequest
+/*
+ * Esta clase se puede omitir, ya no es necesaria, se deja unicamente por estabilidad
+ */
+
+class UpdateProjectRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +27,11 @@ class SaveProjectRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
             'title' => 'required',
             'description' => 'required',
-            'url' => [
-                'required',
-                Rule::unique('projects', 'url')->ignore($this->project)],
-            'fileUploader' => 'file|required|mimes:jpeg,jpg,png,gif|max:10000'
+            'url' => 'required',
+            'fileUploader' => 'file|mimes:jpeg,jpg,png,gif|max:2000|nullable'
         ];
     }
 }

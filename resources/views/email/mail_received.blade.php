@@ -10,7 +10,5 @@
 <p>Recibiste un mensaje de: <strong>{{ $msg['name'] }}</strong> con el correo <strong>{{ $msg['email'] }}</strong></p>
     <p><strong>Asunto</strong>: {{ $msg['subject'] }}</p>
     <p><strong>Cuerpo</strong>: <br> {{ $msg['message'] }}</p>
-
-{{ var_dump($msg) }}
 </body>
 </html>
