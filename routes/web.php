@@ -17,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::view('/', 'home')->name('home');
 
 Route::view('/about','about')->name('about');
 
 Route::resource('portfolio', 'ProjectController')->names('projects')->parameters(['portfolio'=>'project']);
+
+Route::get('categories/{category}', 'CategoryController@show')->name('categories.show');
+
 
 /*
 Route::get('/portfolio', 'ProjectController@index')->name('projects.index');

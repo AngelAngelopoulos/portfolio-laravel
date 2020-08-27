@@ -2,51 +2,76 @@
 
 @csrf
 <div class="form-group bg-dark col-10 mx-auto shadow rounded py-3 px-4">
-    <label class="text-white" for="title">Project's Title</label> <br>
-    <input class="form-control bg-light shadow rounded-pill" type="text" name="title" value="{{ old('title', $project->title) }}"> <br>
+    <div class="form-group">
+        <label class="text-white" for="title">Project's Title</label>
+        <input class="form-control bg-light shadow rounded-pill" type="text" name="title" value="{{ old('title', $project->title) }}">
 
-    <label class="text-white" for="url">Project's Url</label> <br>
-    <input class="form-control bg-light shadow rounded-pill" type="text" name="url" value="{{ old('url', $project->url) }}"> <br>
+    </div>
 
-    <label class="text-white" for="description">Project's Description</label> <br>
-    <textarea
-        rows="10"
-        aria-multiline="true"
-        name="description"
-        class="textBox form-control bg-light shadow rounded
+    <div class="form-group">
+        <label class="text-white" for="category_id">Category</label>
+        <select class="form-control bg-light shadow rounded" name="category_id" id="category_id">
+            <option>Seleccionar</option>
+            @foreach( $categories as $id => $category )
+                <option value="{{ $id }}"
+                        @if( old('category_id',$project->category_id) == $id )
+                        selected
+                    @endif
+                >{{ $category }}
+                    </option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="text-white" for="url">Project's Url</label>
+        <input class="form-control bg-light shadow rounded-pill" type="text" name="url" value="{{ old('url', $project->url) }}">
+    </div>
+
+    <div class="form-group">
+        <label class="text-white" for="description">Project's Description</label>
+        <textarea
+            rows="10"
+            aria-multiline="true"
+            name="description"
+            class="textBox form-control bg-light shadow rounded
                     @error('message') is-invalid @else border-0 @enderror"
-        onfocusout="textReplace()"
-        onfocusin="textRepWithDef()"
+            onfocusout="textReplace()"
+            onfocusin="textRepWithDef()"
 
-    >
-        {{ old('description', $project->description) }}
+        >
+            @if( $project->description )
+                {{ old('description', $project->description) }}
+            @else
+                Body message here...
+            @endif
     </textarea>
-    @error('message')
-    <span class="invalid-feedback" role="alert">
+        @error('message')
+        <span class="invalid-feedback" role="alert">
                         <strong>
                             {{ $message }}
                         </strong>
                     </span>
-    @enderror
+        @enderror
 
-    <script>
-        function textRepWithDef() {
-            let text = document.getElementsByClassName('textBox');
-            //console.log('llego');
-            text[0].childNodes[0].nodeValue = '';
-        }
+        <script>
+            function textRepWithDef() {
+                let text = document.getElementsByClassName('textBox');
+                //console.log('llego');
+                text[0].childNodes[0].nodeValue = '';
+            }
 
-        function textReplace() {
-            let text = document.getElementsByClassName('textBox');
-            text[0].childNodes[0].nodeValue = "{{ old('message', 'Body message here...') }}";
-        }
+            function textReplace() {
+                let text = document.getElementsByClassName('textBox');
+                text[0].childNodes[0].nodeValue = "{{ old('message', 'Body message here...') }}";
+            }
+        </script>
+    </div>
 
-    </script>
-
-
-
-    <label class="text-white" for="fileUploader">Project's Image</label>
-    <input class="form-control-file rounded-pill mb-3" style="border: solid black; border-width: thin" name="fileUploader" id="file-upload" type="file"/>
+    <div class="form-group">
+        <label class="text-white" for="fileUploader">Project's Image</label>
+        <input class="form-control-file rounded-pill mb-3" style="border: solid black; border-width: thin" name="fileUploader" id="file-upload" type="file"/>
+    </div>
 
 
     @if($project->image)

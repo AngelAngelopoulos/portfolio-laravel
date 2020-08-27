@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="col-12 col-sm-10 col-lg-8 mx-auto">
-            <h1 class="title">Contact me</h1>
+            <h1 class="title my-3">Contact me</h1>
 
             <form method="post" action="{{ route('contact') }}"
                   class="bg-dark text-white shadow rounded py-3 px-4">

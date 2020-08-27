@@ -13,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" type="text/css" />
 
@@ -22,15 +23,17 @@
         <header>
             @include('partials.nav')
 
-
             <div class="col-6 alert-success mx-auto rounded" role="alert">
                 @include('partials.session-status')
             </div>
 
+
         </header>
+
+
         @auth
             <div class="container border-0 p-0 m-0">
-                <span class="float-right title p-0 m-0">Welcome back <b>{{ auth()->user()->name }}!!</b></span>
+                <span class="float-right title px-3 m-0">Welcome back <b>{{ auth()->user()->name }}!!</b></span>
             </div>
         @endauth
         <main class="main py-2">
@@ -58,29 +61,29 @@
 
                 <div class="col-sm-12 col-lg-4 float-lg-right">
                     <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="https://www.facebook.com/profile.php?id=100007968701728"><i class="fab fa-facebook"></i> Facebook</a>
 
                     </div>
                     <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="https://twitter.com/suminoe_angel"><i class="fab fa-twitter"></i> Twitter</a>
                     </div>
 
                     <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-telegram"></i> Telegram</a>
+                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="https://t.me/ch3rry_blossom"><i class="fab fa-telegram"></i> Telegram</a>
                     </div>
                 </div>
 
                 <div class="col-sm-12 col-lg-4 float-lg-left">
                     <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-linkedin-in"></i> Linkedin</a>
+                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="https://www.linkedin.com/in/luis-angel-alvarado-hernandez/"><i class="fab fa-linkedin-in"></i> Linkedin</a>
 
                     </div>
                     <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-behance"></i> Behance</a>
+                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="https://www.behance.net/angelalvarado3"><i class="fab fa-behance"></i> Behance</a>
                     </div>
 
                     <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="https://www.instagram.com/sad.cherryblossom/"><i class="fab fa-instagram"></i> Instagram</a>
                     </div>
                 </div>
 

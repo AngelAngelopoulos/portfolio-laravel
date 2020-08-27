@@ -20,12 +20,21 @@
 }
 
 #navigation {
+    z-index:  2;
+    overflow: hidden;
     background-color: #121416;//#0f4c75;
     margin: 0;
-    opacity: .5;
+    position: fixed; /* Set the navbar to fixed position */
+    left: 0;
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    //box-shadow: black;
+    //opacity: .5;
     //color: white;
+}
 
-
+.navbar-collapse {
+    z-index: 1;
 }
 
 .nav-link {
@@ -34,6 +43,7 @@
 
 body {
     background-color: #16181b;//b262c;
+    padding-top: 80px;
     //color: white;
     //height: 100%;
 }
@@ -43,8 +53,36 @@ footer {
 }
 
 .descript-proj {
-    background-color:#808588; //#a5b3b1;
+    background-color:#DEDEDE; //#a5b3b1;
 }
+
+main {
+    //top: 250px;
+}
+
+.nav-item:hover {
+    //box-shadow: white;
+    border: white;
+}
+
+.active {
+    color: black;
+}
+
+/*
+nav {
+    align-content: center;
+    .pagination {
+        margin: 0 auto;
+        padding: revert;
+        width: 12vw;
+        padding: 0;
+        .page-item {
+            padding: 0;
+        }
+    }
+}*/
+
 
 /*.back {
     position: relative;

@@ -17,9 +17,22 @@
                     <p class="text-black-50 pt-4 px-2">
                         <b>Created at: </b>{{ date_format($project->created_at, "F jS, Y") }}<br>
                     </p>
-                    <p class="card-text text-black-80 px-2" style="font-size: 1em;">
-                        {{ $project->description }}
+
+
+                    @if( $project->category_id )
+                        <a href="{{ route('categories.show', $project->category) }}"
+
+                           class="badge badge-secondary mx-2" >{{ $project->category->name }}</a>
+                    @endif
+
+
+                    <p id="desc" class="card-text text-black-80 px-2" style="font-size: 1em;">
+                        <span class="p-0 m-0" style="white-space: pre-line">
+                            {{ $project->description }}
+                        </span>
+
                     </p>
+
                     <a class="btn btn-dark rounded-pill px-2 my-2" href="{{ route('projects.index') }}">Return to portfolio</a>
                     @auth
                         <div class="d-flex my-2">

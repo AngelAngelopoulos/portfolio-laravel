@@ -31,6 +31,7 @@ class UpdateProjectRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'url' => 'required',
+            'category_id' => ['required', 'exists:categories,id'],
             'fileUploader' => 'file|mimes:jpeg,jpg,png,gif|max:2000|nullable'
         ];
     }

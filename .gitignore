@@ -31,3 +31,6 @@ cred.json
 app.yaml
 cred.json
 additional-supervisord.conf
+/databases/seeds
+/config/filesystems.php
+/storage
