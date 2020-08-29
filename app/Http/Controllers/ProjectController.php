@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\SaveProjectRequest;
 //use App\Image;
 //use App\Images;
@@ -24,11 +25,11 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $portfolio = Project::latest('updated_at')->paginate();
+        $portfolio = Project::with('category')->latest('updated_at')->paginate(6);
 
 
         return view('projects.index', [
-            'projects'=> $portfolio
+            'projects'=> $portfolio,
         ]);
     }
 
@@ -47,8 +48,10 @@ class ProjectController extends Controller
 
     public function create()
     {
+        $categories = Category::pluck('name', 'id');
         return view('projects.create', [
-            'project' => new Project
+            'project' => new Project,
+            'categories' => $categories
         ]);
     }
 
@@ -66,12 +69,14 @@ class ProjectController extends Controller
         ]);
         */
 
+        //return $request;
         $project = new Project($request->validated());
 
         $image = Storage::put('img', $request->file('fileUploader'));
         $project->image = $image;//$request->file('fileUploader')->store('img');
 
         //Project::create($project);
+        //return $project;
         $project->save();
 
         ProjectSaved::dispatch($project);
@@ -88,8 +93,13 @@ class ProjectController extends Controller
 
     public function edit(Project $project)
     {
+        $categories = Category::pluck('name', 'id');
+
+        //return $categories;
+
         return view('projects.edit', [
-            'project' => $project
+            'project' => $project,
+            'categories' => $categories
         ]);
     }
 

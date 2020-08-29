@@ -3,41 +3,67 @@
 @section('title', 'Portfolio | '.$project->title)
 
 @section('content')
+  <section id="portfolio-details mt-5" class="portfolio-details">
     <div class="container">
-        <div class="row">
+      <div class="portfolio-details-container">
 
-                <div class="col-11 py-2 px-lg-4 p-sm-3  shadow rounded descript-proj mx-auto">
+          <div class="owl-carousel portfolio-details-carousel" data-aos="fade-left">
+            @if($project->image)
+                <img class="card-img-top mx-2 image-fluid" style="width: 100%"  src="{{ \Illuminate\Support\Facades\Storage::url($project->image)  }}" alt="{{ $project->image }}">
+            @endif
+          </div>
 
-                    <h1 class="card-title text-center py-2">{{ $project->title }}</h1>
-                    <hr>
-                    @if($project->image)
-                        <img class="card-img-top shadow rounded mx-2" style="width: 80%"  src="{{ \Illuminate\Support\Facades\Storage::url($project->image)  }}" alt="{{ $project->image }}">
-                    @endif
+          <div class="portfolio-info" data-aos="fade-right">
+            <h3>Project information</h3>
+            <ul>
+              <li><strong>Category</strong>:
+                @if( $project->category_id )
+                    <a href="{{ route('categories.show', $project->category) }}"
 
-                    <p class="text-black-50 pt-4 px-2">
-                        <b>Created at: </b>{{ date_format($project->created_at, "F jS, Y") }}<br>
-                    </p>
-                    <p class="card-text text-black-80 px-2" style="font-size: 1em;">
-                        {{ $project->description }}
-                    </p>
-                    <a class="btn btn-dark rounded-pill px-2 my-2" href="{{ route('projects.index') }}">Return to portfolio</a>
-                    @auth
-                        <div class="d-flex my-2">
-                            <a class="btn btn-dark" href="{{ route('projects.edit', $project) }}" >Editar</a>
+                        >{{ $project->category->name }}</a>
+                @else
+                  <span class="text-black-50">Not available</span>
+                @endif
+              </li>
+              <li><strong>Project date</strong>: {{ date_format($project->created_at, "F jS, Y") }}</li>
+              @if ($project->link)
+                <li><strong>Project URL</strong>: <a href="{{ $project->link }}">{{ $project->link }}</a></li>
+              @else
+                <li><strong>Project URL</strong>: <span class="text-black-50">Not available</span></li>
+              @endif
 
-                            <form class="p-0 m-0" method="post" action="{{ route('projects.destroy', $project) }}">
-
-                                @csrf
-                                @method('delete')
-                                <button class="btn btn-danger" type="submit">Eliminar</button>
-                            </form>
-                        </div>
-
-                    @endauth
-                </div>
+            </ul>
+          </div>
         </div>
-    </div>
+
+        <div class="portfolio-description" data-aos="fade-up">
+          <h2>{{ $project->title }}</h2>
+            <p class="p-0 m-0" style="white-space: pre-line">
+                {{ $project->description }}
+          </p>
+
+          <div class="d-flex justify-content-between mt-5">
+            <div class=" float-left">
+              <a class="btn btn-dark rounded-pill" href="{{ route('projects.index') }}">Return to portfolio</a>
+            </div>
+
+            @auth
+                <div class="d-flex align-items-center float-right">
+                    <a class="btn btn-dark" href="{{ route('projects.edit', $project) }}" >Editar</a>
+
+                    <form class="p-0 m-0" method="post" action="{{ route('projects.destroy', $project) }}">
+
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger" type="submit">Eliminar</button>
+                    </form>
+                </div>
+
+            @endauth
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 @endsection
-

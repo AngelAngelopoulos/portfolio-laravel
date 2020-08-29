@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Validation\Rule;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -30,8 +31,11 @@ class UpdateProjectRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'url' => 'required',
-            'fileUploader' => 'file|mimes:jpeg,jpg,png,gif|max:2000|nullable'
-        ];
+            'url' => ['required',
+            Rule::unique('projects', 'url')->ignore($this->project)],
+            'category_id' => ['required', 'exists:categories,id'],
+            'fileUploader' => 'file|mimes:jpeg,jpg,png,gif|max:2000|nullable',
+            'link' => Rule::unique('projects', 'url')->ignore($this->project)
+          ];
     }
 }

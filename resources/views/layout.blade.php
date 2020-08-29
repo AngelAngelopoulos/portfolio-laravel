@@ -3,100 +3,100 @@
 {{  header("X-Content-Type-Options: nosniff") }}
 {{  header("Referrer-Policy: no-referrer") }}
 {{ header("Feature-Policy: microphone 'none'; geolocation 'none'") }}
-{{ header("Content-Security-Policy: 'unsafe-inline'") }}
+{{ header("Content-Security-Policy: default-src  * 'unsafe-inline' 'unsafe-eval'; font-src * 'self' data:; img-src  * 'self' data:") }}
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title')</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}" type="text/css" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>@yield('title')</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
+  <!-- Favicons -->
+  <link href="{{ asset('assets/img/favicon.ico') }}" rel="icon">
+  <link href="{{asset('assets/img/apple-touch-icon.ico') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/venobox/venobox.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <!-- Template Main CSS File -->
+
+  <!--<link href="https://storage.googleapis.com/segment-assets/assets/css/style.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="{{ mix('css/app.css') }}" type="text/css" />
+
+  <!-- =======================================================
+  * Template Name: iPortfolio - v1.4.0
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
+
 <body>
-    <div class="d-flex flex-column h-screen justify-content-between">
-        <header>
+
             @include('partials.nav')
+<!--Session Status-->
 
 
-            <div class="col-6 alert-success mx-auto rounded" role="alert">
-                @include('partials.session-status')
-            </div>
 
-        </header>
-        @auth
-            <div class="container border-0 p-0 m-0">
-                <span class="float-right title p-0 m-0">Welcome back <b>{{ auth()->user()->name }}!!</b></span>
-            </div>
-        @endauth
-        <main class="main py-2">
+<!--End Session status-->
+
+
+
+        <main class="main" id="main">
+          @include('partials.session-status')
+
             <div>
                 @yield('content')
             </div>
         </main>
 
-        <footer class="text-center text-dark-50 py-3 shadow-sm">
-            <div class="container">
-            <div class="col-sm-12 col-lg-4 float-lg-left align-content-center">
-                <div class="row">
-                    <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="{{ route('about') }}"><i class="fas fa-address-card"></i> About me</a>
 
-                </div>
-                <div class="row">
-                    <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="{{ route('projects.index') }}"><i class="fas fa-tasks"></i> Portfolio</a>
-                </div>
 
-                <div class="row">
-                    <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="{{ route('contact') }}"><i class="far fa-envelope"></i> contacto@angelalvarado.cf</a>
-                </div>
+        <footer id="footer">
+          <div class="container">
+            <div class="copyright">
+              &copy; Copyright <strong><span>Angel Alvarado</span></strong>
             </div>
 
+          </div>
+        </footer><!-- End  Footer -->
+        <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
-                <div class="col-sm-12 col-lg-4 float-lg-right">
-                    <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-facebook"></i> Facebook</a>
+          <!-- Vendor JS Files -->
+        <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+        <!--<script src="https://storage.googleapis.com/segment-assets/assets/vendor/php-email-form/validate.js"></script>-->
 
-                    </div>
-                    <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                    </div>
+        <script src="{{ asset('assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/counterup/counterup.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/venobox/venobox.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/typed.js/typed.min.js') }}"></script>
+        <script src="{{ asset('/assets/vendor/aos/aos.js') }}"></script>
 
-                    <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-telegram"></i> Telegram</a>
-                    </div>
-                </div>
+        <!-- Template Main JS File -->
+        <!--<script src="https://storage.googleapis.com/segment-assets/assets/js/main.js" defer></script>-->
+        <script src="{{ mix('js/validate.js') }}" type="text/javascript" defer></script>
+        <script src="{{ mix('js/app.js') }}" type="text/javascript">
+        </script>
+        </body>
 
-                <div class="col-sm-12 col-lg-4 float-lg-left">
-                    <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-linkedin-in"></i> Linkedin</a>
-
-                    </div>
-                    <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-behance"></i> Behance</a>
-                    </div>
-
-                    <div class="row">
-                        <a class="col-12 my-2 mx-auto text-decoration-none text-white" href="#"><i class="fab fa-instagram"></i> Instagram</a>
-                    </div>
-                </div>
-
-
-
-            </div>
-            <span class="text-white pt-1">
-                 {{ "Angel Alvarado"  }} | Copyright &copy; {{ date('Y') }}
-            </span>
-
-        </footer>
-    </div>
-
-    <script src="https://kit.fontawesome.com/b5326cc3a7.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
-</html>
+        </html>

@@ -31,7 +31,9 @@ class SaveProjectRequest extends FormRequest
             'url' => [
                 'required',
                 Rule::unique('projects', 'url')->ignore($this->project)],
-            'fileUploader' => 'file|required|mimes:jpeg,jpg,png,gif|max:10000'
-        ];
+            'fileUploader' => 'file|required|mimes:jpeg,jpg,png,gif|max:10000',
+            'category_id' => ['required', 'exists:categories,id'],
+            'link' => Rule::unique('projects', 'url')->ignore($this->project)
+          ];
     }
 }

@@ -17,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::view('/', 'home')->name('home');
 
 Route::view('/about','about')->name('about');
 
 Route::resource('portfolio', 'ProjectController')->names('projects')->parameters(['portfolio'=>'project']);
+
+Route::get('categories/{category}', 'CategoryController@show')->name('categories.show');
+
 
 /*
 Route::get('/portfolio', 'ProjectController@index')->name('projects.index');
@@ -44,9 +48,11 @@ Route::view('/contact','contact')->name('contact');
 
 Route::post('/contact', 'MessageController@storage')->name('contact.storage');
 
-Route::get('/css/app.css', 'MessageController@style')->name('html.style');
+//Route::get('/css/app.css', 'MessageController@style')->name('html.style');
+
+//Route::view('/resume', 'resume')->name('resume');
+
+Route::view('/services', 'services')->name('services');
+
 
 Auth::routes(['register' => false]);
-
-
-

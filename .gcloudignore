@@ -40,3 +40,6 @@ yarn-error.log
 /php-docs-samples
 cred.json
 /tests
+/storage/debugbar
+/storage/public
+.gitignore

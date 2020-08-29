@@ -12,9 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/validate.js', 'public/js');
 
-mix.browserSync('http://laravel.test');
+mix.browserSync('http://laravelPort.test');
 
 mix.js('node_modules/popper.js/dist/popper.js', 'public/js').sourceMaps();
 
@@ -22,4 +23,3 @@ if (mix.inProduction())
 {
     mix.version();
 }
-
