@@ -87,6 +87,12 @@ return [
             'storage_api_uri' => env('GOOGLE_CLOUD_STORAGE_API_URI', null), // see: Public URLs below
             'visibility' => 'public', // optional: public|private
         ],
+      'b2' => [
+        'driver'         => 'b2',
+        'accountId'      => env('B2_ACCOUNT_ID'),
+        'applicationKey' => env('B2_APP_KEY'),
+        'bucketName'     => env('B2_BUCKET'),
+        ],
     ],
 
     /*

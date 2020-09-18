@@ -82,7 +82,7 @@
     @if($project->image)
         <div class="img-thumbnail rounded" id="file-preview-zone" style="width: 800px;">
 
-                <img style="width: 100%; height: 250px; object-fit: cover" src="{{ \Illuminate\Support\Facades\Storage::url($project->image) }}">
+                <img style="width: 100%; height: 250px; object-fit: cover" src="{{ /*\Illuminate\Support\Facades\Storage::url(*/ 'https://f002.backblazeb2.com/file/laravel-portfolio/'.$project->image }}">
         </div>
     @else
         <div class="img-thumbnail rounded" id="file-preview-zone" style="width: 800px; display: none;">

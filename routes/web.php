@@ -55,4 +55,10 @@ Route::post('/contact', 'MessageController@storage')->name('contact.storage');
 Route::view('/services', 'services')->name('services');
 
 
+Route::get('/pay', 'PayController@index')->name('pay');
+
+Route::post('/pay/paymentStripe', 'PayController@payStripe')->name('pay.payStripe');
+
+Route::post('/pay/paymentML', 'PayController@payML')->name('pay.payML');
+
 Auth::routes(['register' => false]);

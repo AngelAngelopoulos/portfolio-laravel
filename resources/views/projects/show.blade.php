@@ -9,7 +9,7 @@
 
           <div class="owl-carousel portfolio-details-carousel" data-aos="fade-left">
             @if($project->image)
-                <img class="card-img-top mx-2 image-fluid" style="width: 100%"  src="{{ \Illuminate\Support\Facades\Storage::url($project->image)  }}" alt="{{ $project->image }}">
+                <img class="card-img-top mx-2 image-fluid" style="width: 100%"  src="{{ /*\Illuminate\Support\Facades\Storage::url(*/ 'https://f002.backblazeb2.com/file/laravel-portfolio/'.$project->image  }}" alt="{{ $project->image }}">
             @endif
           </div>
 

@@ -48,7 +48,7 @@
 <div class="align-items-center">
         <h2 class="" style="text-align: center"><i class="icofont-warning mx-auto"></i></h2>
       </br>
-         <h1 class="mx-auto" style="text-align: center">Error: that entry does not exists, you can return to <a href="{{ route('home') }}">Home</a> </h1>
+         <h1 class="mx-auto" style="text-align: center">Error: This page does not exist, you may return to <a href="{{ route('home') }}">Home</a> </h1>
     </div>
   </div>
   </section>

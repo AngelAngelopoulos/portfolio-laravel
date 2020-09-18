@@ -34,3 +34,8 @@ additional-supervisord.conf
 /databases/seeds
 /config/filesystems.php
 /storage
+.htaccess
+.gcloudignore
+.gitignore
+.env-digitalocean
+.env.example

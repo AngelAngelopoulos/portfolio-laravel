@@ -181,6 +181,10 @@ return [
         Intervention\Image\ImageServiceProvider::class,
 
         Superbalist\LaravelGoogleCloudStorage\GoogleCloudStorageServiceProvider::class,
+
+        // Otros Providers...
+  SantiGraviano\LaravelMercadoPago\Providers\MercadoPagoServiceProvider::class,
+        \Gliterd\BackblazeB2\BackblazeB2ServiceProvider::class,
     ],
 
     /*
@@ -236,6 +240,9 @@ return [
         Aliases
         */
         'Image' => Intervention\Image\Facades\Image::class,
+        // Otros Aliases
+        'MP' => SantiGraviano\LaravelMercadoPago\Facades\MP::class,
+
     ],
 
 ];

@@ -51,7 +51,7 @@
                 @forelse($projects as $project)
                     <div class="card border-0 shadow mx-auto mt-4 card-proj" style="width: 19rem;" data-aos="fade-up" data-aos-delay="100">
                         @if($project->image)
-                            <img class="card-img-top" src="{{ \Illuminate\Support\Facades\Storage::url($project->image)  }}" style="height: 150px; object-fit: cover;" alt="Card image cap">
+                            <img class="card-img-top" src="{{ /*\Illuminate\Support\Facades\Storage::url(*/ 'https://f002.backblazeb2.com/file/laravel-portfolio/'.$project->image   }}" style="height: 150px; object-fit: cover;" alt="Card image cap">
                         @endif
                         <div class="card-body  rounded card-proj">
                             <h5 class="card-title text-light">{{ $project->title }}</h5>
