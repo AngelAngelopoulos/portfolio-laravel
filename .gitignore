@@ -39,3 +39,4 @@ additional-supervisord.conf
 .gitignore
 .env-digitalocean
 .env.example
+nginx-app.conf
