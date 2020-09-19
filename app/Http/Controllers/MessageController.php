@@ -11,41 +11,77 @@ use SendGrid\Mail\Mail;
 class MessageController extends Controller
 {
     public function storage(Request $request){
-        $message = request()->validate([
-            'name'=> ['required'],
-            'email' => ['required','email'],
-            'subject' => ['required'],
-            'message' => ['required']
-        ]);
 
+        //$recaptcha = $request['g-recaptcha-response'];
 
-        $mail_data = new MailReceived($message);
-        //dd( $mail_data-> );
-        //dd($mail_data->render());
-
-
-        //return new MailReceived($message);
-        //Mail::to('angelsuminoe01@gmail.com')->queue(new MailReceived($message));
-
-        $email = new \SendGrid\Mail\Mail();
-        $email->setFrom("admin@angelalvarado.cf", "Contacto");
-        $email->setSubject("Mensaje de contacto de ".$message['email']);
-        $email->addTo("contacto@angelalvarado.cf");
-        //$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
-        $email->addContent(
-            "text/html", (string) $mail_data->render()
+        if (isset($request['g-recaptcha-response'])) {
+        $captcha = $request['g-recaptcha-response'];
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        $data = array(
+        'secret' => env('RECAPTCHA_KEY'),
+        'response' => $captcha,
+        'remoteip' => $_SERVER['REMOTE_ADDR']
         );
-        $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
-        try {
-            $response = $sendgrid->send($email);
-            //print $response->statusCode() . "\n";
-            //print_r($response->headers());
-            //print $response->body() . "\n";
-        } catch (Exception $e) {
-            echo 'Caught exception: '. $e->getMessage() ."\n";
+
+        $curlConfig = array(
+        CURLOPT_URL => $url,
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POSTFIELDS => $data
+        );
+
+        $ch = curl_init();
+        curl_setopt_array($ch, $curlConfig);
+        $response = curl_exec($ch);
+        curl_close($ch);
         }
 
-        return redirect()->back()->with('status', 'Message send successfully, we reply you within the next 24 hours');
+        //$jsonResponse = json_decode($response);
+      	$captcha_success = json_decode($response);
+
+
+      	if ($captcha_success->success) {
+          $message = request()->validate([
+              'name'=> ['required'],
+              'email' => ['required','email'],
+              'subject' => ['required'],
+              'message' => ['required']
+          ]);
+
+
+          $mail_data = new MailReceived($message);
+          //dd( $mail_data-> );
+          //dd($mail_data->render());
+
+
+          //return new MailReceived($message);
+          //Mail::to('angelsuminoe01@gmail.com')->queue(new MailReceived($message));
+
+          $email = new \SendGrid\Mail\Mail();
+          $email->setFrom("contacto@angelalvarado.cf", "Contacto");
+          $email->setSubject("Mensaje de contacto de ".$message['email']);
+          $email->addTo("angel.alvarado.dev@gmail.com");
+          //$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+          $email->addContent(
+              "text/html", (string) $mail_data->render()
+          );
+          $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+          try {
+              $response = $sendgrid->send($email);
+              //print $response->statusCode() . "\n";
+              //print_r($response->headers());
+              //print $response->body() . "\n";
+          } catch (Exception $e) {
+              echo 'Caught exception: '. $e->getMessage() ."\n";
+          }
+
+          return redirect()->back()->with('status', 'Message send successfully, we reply you within the next 24 hours');
+
+      }
+      else
+      {
+        return redirect()->back()->with('status', 'Error, fill the captcha please');
+      }
     }
 
     public function style(Request $request) {

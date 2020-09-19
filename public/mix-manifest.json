@@ -1,9 +1,6 @@
 {
-    "/js/app.js": "/js/app.js?id=4c4b14765c9742eae3a2",
-    "/css/app.css": "/css/app.css?id=976d7ec159df39be8290",
-    "/js/app.js.map": "/js/app.js.map?id=3db370af17f1dcc94a69",
-    "/js/popper.js": "/js/popper.js?id=a195f1ec25f0aab9a102",
-    "/js/popper.js.map": "/js/popper.js.map?id=182293db2e572d36e72b",
-    "/js/validate.js": "/js/validate.js?id=55aac58ac75f63e8b295",
-    "/js/validate.js.map": "/js/validate.js.map?id=6dd70f06dfd4a48fc5e5"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/popper.js": "/js/popper.js",
+    "/js/validate.js": "/js/validate.js"
 }

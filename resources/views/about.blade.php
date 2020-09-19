@@ -24,7 +24,7 @@
           <div class="row">
             <div class="col-lg-6">
               <ul>
-                <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> 6 Dec 1998</li>
+
                 <li><i class="icofont-rounded-right"></i> <strong>Website:</strong> www.angelalvarado.cf</li>
                 <li><i class="icofont-rounded-right"></i> <strong>Study at:</strong> UASLP, Mexico</li>
                 <li><i class="icofont-rounded-right"></i> <strong>City:</strong> San Luis Potosí, Mexico</li>
@@ -32,10 +32,10 @@
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="icofont-rounded-right"></i> <strong>Age:</strong> 21</li>
+
                 <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> Engineering Student</li>
                 <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> contacto@angelalvarado.cf</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Freelance:</strong> Available (only email)</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Freelance:</strong> Available (remote only)</li>
               </ul>
             </div>
           </div>
@@ -179,6 +179,28 @@ One of my strengths is PHP programming with laravel, I currently have good exper
               <h5>Using TensorFlow with Amazon Sagemaker</h5>
             </div>
 
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                  <img src="{{ asset('img/C-SIA.jpg') }}" class="img-fluid" alt="">
+                  <div class="portfolio-links">
+                    <a href="{{ asset('img/C-SIA.jpg') }}" data-gall="portfolioGallery" class="venobox" title="Agile Computer Security Certification"><i class="bx bx-plus"></i></a>
+                    <a href="https://badgr.com/public/assertions/Kf--USxTRbi9uxl08_1qig" title="More Details"><i class="bx bx-link"></i></a>
+                  </div>
+                </div>
+                <h5>Agile Computer Security Certification</h5>
+              </div>
+
+              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                  <div class="portfolio-wrap">
+                    <img src="{{ asset('img/Ilustrator.png') }}" class="img-fluid" alt="">
+                    <div class="portfolio-links">
+                      <a href="{{ asset('img/Ilustrator.png') }}" data-gall="portfolioGallery" class="venobox" title="Graphic Vectors with Adobe Illustrator"><i class="bx bx-plus"></i></a>
+                      <a href="#" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                  <h5>Graphic Vectors with Adobe Illustrator</h5>
+                </div>
 
           </div>
 </div>
