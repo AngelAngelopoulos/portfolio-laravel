@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') == 'production')
         {
             URL::forceScheme('https');
+	\Debugbar::disable();
         }
 
         //parent::boot();
