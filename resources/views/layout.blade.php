@@ -1,9 +1,3 @@
-{{ header("Strict-Transport-Security: max-age=31536000; includeSubDomains") }}
-{{  header("X-Frame-Options: SAMEORIGIN") }}
-{{  header("X-Content-Type-Options: nosniff") }}
-{{  header("Referrer-Policy: no-referrer") }}
-{{ header("Feature-Policy: microphone 'none'; geolocation 'none'") }}
-{{ header("Content-Security-Policy: default-src  * 'unsafe-inline' 'unsafe-eval'; font-src * 'self' data:; img-src  * 'self' data:") }}
 
 <!DOCTYPE html>
 <html lang="en">
