@@ -14,7 +14,7 @@
 
       <div class="row">
         <div class="col-lg-4" data-aos="fade-right">
-          <img src="{{ asset('img/Angel.jpg') /*https://drive.google.com/uc?export=view&amp;id=1D1YzNanQFsApEJSNUs7_6TQWnnYRpvy7*/}}" class="img-fluid" alt="">
+          <img src="{{ asset('img/Angelo.jpg') /*https://drive.google.com/uc?export=view&amp;id=1D1YzNanQFsApEJSNUs7_6TQWnnYRpvy7*/}}" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>Software  &amp; Web Developer.</h3>
