@@ -14,7 +14,7 @@
 
       <div class="row">
         <div class="col-lg-4" data-aos="fade-right">
-          <img src="https://drive.google.com/uc?export=view&amp;id=1D1YzNanQFsApEJSNUs7_6TQWnnYRpvy7" class="img-fluid" alt="">
+          <img src="{{ asset('img/Angel.JPG') /*https://drive.google.com/uc?export=view&amp;id=1D1YzNanQFsApEJSNUs7_6TQWnnYRpvy7*/}}" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>Software  &amp; Web Developer.</h3>
@@ -26,14 +26,14 @@
               <ul>
 
                 <li><i class="icofont-rounded-right"></i> <strong>Website:</strong> www.angelalvarado.cf</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Study at:</strong> UASLP, Mexico</li>
-                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> San Luis Potosí, Mexico</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Study at:</strong> Universidad Autónoma de San Luis Potosi, México</li>
+                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> San Luis Potosí, México</li>
               </ul>
             </div>
             <div class="col-lg-6">
               <ul>
 
-                <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> Engineering Student</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> Ingeniería en Sistemas Inteligentes, Especializado en Ciberseguridad</li>
                 <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> contacto@angelalvarado.cf</li>
                 <li><i class="icofont-rounded-right"></i> <strong>Freelance:</strong> Available (remote only)</li>
               </ul>
@@ -72,7 +72,7 @@ One of my strengths is PHP programming with laravel, I currently have good exper
           </div>
 
           <div class="progress">
-            <span class="skill">C++ <i class="val">80%</i></span>
+            <span class="skill">C/C++ <i class="val">80%</i></span>
             <div class="progress-bar-wrap">
               <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
