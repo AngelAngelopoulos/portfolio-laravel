@@ -39,7 +39,7 @@ class MessageController extends Controller
         //$jsonResponse = json_decode($response);
       	$captcha_success = json_decode($response);
 
-
+	dd($captcha_success);
       	if ($captcha_success->success) {
           $message = request()->validate([
               'name'=> ['required'],

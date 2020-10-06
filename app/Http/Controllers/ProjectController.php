@@ -29,7 +29,7 @@ class ProjectController extends Controller
 
 
         return view('projects.index', [
-            'projects'=> $portfolio,
+            'projects'=> $portfolio
         ]);
     }
 
