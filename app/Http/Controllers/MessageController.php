@@ -18,7 +18,7 @@ class MessageController extends Controller
         $captcha = $request['g-recaptcha-response'];
         $url = 'https://www.google.com/recaptcha/api/siteverify';
         $data = array(
-        'secret' => '6LfHuMQZAAAAAIJ6SWSWkLDeY-RjflUyYiOdOCjv',
+        'secret' => env('RECAPTCHA_KEY'), //\Config::get('app.key'), //'6LfHuMQZAAAAAIJ6SWSWkLDeY-RjflUyYiOdOCjv',
         'response' => $captcha,
         'remoteip' => $_SERVER['REMOTE_ADDR']
         );
