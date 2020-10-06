@@ -13,16 +13,16 @@ class MessageController extends Controller
     public function storage(Request $request){
 
         //$recaptcha = $request['g-recaptcha-response'];
-
+	//dd($request);
         if (isset($request['g-recaptcha-response'])) {
         $captcha = $request['g-recaptcha-response'];
         $url = 'https://www.google.com/recaptcha/api/siteverify';
         $data = array(
-        'secret' => env('RECAPTCHA_KEY'),
+        'secret' => '6LfHuMQZAAAAAIJ6SWSWkLDeY-RjflUyYiOdOCjv',
         'response' => $captcha,
         'remoteip' => $_SERVER['REMOTE_ADDR']
         );
-
+	//dd($data);
         $curlConfig = array(
         CURLOPT_URL => $url,
         CURLOPT_POST => true,
@@ -35,10 +35,11 @@ class MessageController extends Controller
         $response = curl_exec($ch);
         curl_close($ch);
         }
+	//dd($response);
 
         //$jsonResponse = json_decode($response);
       	$captcha_success = json_decode($response);
-
+	//dd($captcha_success);
 
       	if ($captcha_success->success) {
           $message = request()->validate([
