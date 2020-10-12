@@ -40,7 +40,7 @@
             </div>
           </div>
           <p>
-            I have done multiple projects related to web development and artificial intelligence, as well as courses about computer security and a little bit of graphic design. You can see them in the Portfolio section.
+            I have done multiple projects related to web development and artificial intelligence, as well as courses about computer security and a little bit of graphic design. You can see them in the <a href="{{ route('projects.index') }}">Portfolio</a> section.
           </p>
         </div>
       </div>
@@ -86,9 +86,16 @@ One of my strengths is PHP programming with laravel, I currently have good exper
           </div>
 
           <div class="progress">
-            <span class="skill">Risk & Security Analisis <i class="val">70%</i></span>
+            <span class="skill">Risk & Security Analisis <i class="val">80%</i></span>
             <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <span class="skill">Ruby on Rails <i class="val">75%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
 
@@ -119,6 +126,13 @@ One of my strengths is PHP programming with laravel, I currently have good exper
 
           <div class="progress">
             <span class="skill">Illustrator <i class="val">60%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <span class="skill">Node.js <i class="val">60%</i></span>
             <div class="progress-bar-wrap">
               <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
@@ -201,6 +215,29 @@ One of my strengths is PHP programming with laravel, I currently have good exper
                   </div>
                   <h5>Graphic Vectors with Adobe Illustrator</h5>
                 </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                      <img src="{{ asset('img/Rails.jpg') }}" class="img-fluid" alt="">
+                      <div class="portfolio-links">
+                        <a href="{{ asset('img/Rails.jpg') }}" data-gall="portfolioGallery" class="venobox" title="Ruby on Rails"><i class="bx bx-plus"></i></a>
+                        <a href="#" title="More Details"><i class="bx bx-link"></i></a>
+                      </div>
+                    </div>
+                    <h5>Ruby on Rails</h5>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                      <div class="portfolio-wrap">
+                        <img src="{{ asset('img/RailsAuth.jpg') }}" class="img-fluid" alt="">
+                        <div class="portfolio-links">
+                          <a href="{{ asset('img/RailsAuth.jpg') }}" data-gall="portfolioGallery" class="venobox" title="Ruby on Rails Authentication"><i class="bx bx-plus"></i></a>
+                          <a href="#" title="More Details"><i class="bx bx-link"></i></a>
+                        </div>
+                      </div>
+                      <h5>Ruby on Rails Authentication</h5>
+                    </div>
+
 
           </div>
 </div>
