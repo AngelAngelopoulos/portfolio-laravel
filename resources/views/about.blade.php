@@ -238,6 +238,17 @@ One of my strengths is PHP programming with laravel, I currently have good exper
                       <h5>Ruby on Rails Authentication</h5>
                     </div>
 
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-wrap">
+                          <img src="{{ asset('img/ISO27001Cons.jpg') }}" class="img-fluid" alt="">
+                          <div class="portfolio-links">
+                            <a href="{{ asset('img/ISO27001Cons.jpg') }}" data-gall="portfolioGallery" class="venobox" title="ISO 27001 Consulting & Implementation"><i class="bx bx-plus"></i></a>
+                            <a href="#" title="More Details"><i class="bx bx-link"></i></a>
+                          </div>
+                        </div>
+                        <h5>ISO 27001 Consulting & Implementation</h5>
+                      </div>
+
 
           </div>
 </div>
